@@ -45,7 +45,8 @@ public class TagDAOImpl implements TagDAO{
 		// TODO Auto-generated method stub
 		try {
 			connection = DAOUtilities.getConnection();
-			String sql = "DELETE Tags WHERE isbn_13=?";
+			String sql = "DELETE FROM book_tags WHERE isbn_13=?";
+			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, isbn);
 			if (stmt.executeUpdate() != 0)
 				return true;
