@@ -2,7 +2,9 @@ package examples.pubhub.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import examples.pubhub.model.Book;
@@ -60,9 +62,31 @@ public class TagDAOImpl implements TagDAO{
 	}
 
 	@Override
-	public List<Tag> getAllTags(Book a) {
+	//get all tags for a given book
+	public List<Tag> getAllTags(String title) {
+		
 		// TODO Auto-generated method stub
-		return null;
+		List<Tag> tags = new ArrayList<>();
+		try {
+			connection = DAOUtilities.getConnection();
+			String sql = "SELECT * FROM book_tags WHERE title LIKE ?";
+			stmt = connection.prepareStatement(sql);
+			stmt.setString(1, "%" + title + "%");
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Tag tag = new Tag();
+				tag.setIsbn13(rs.getString("isbn_13"));
+				tag.setTitle(rs.getString("tag_name"));
+				tags.add(tag);
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			closeResources();
+		}
+		return tags;
 	}
 
 	@Override
