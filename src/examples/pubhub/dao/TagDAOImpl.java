@@ -30,7 +30,7 @@ public class TagDAOImpl implements TagDAO{
 				return true;
 			else
 				return false;
-;		}
+		}
 		catch(SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -90,9 +90,37 @@ public class TagDAOImpl implements TagDAO{
 	}
 
 	@Override
-	public List<Book> getAllBooks(Tag a) {
+	//given a tag isbn, retrieve books
+	//assume a book can have more than one tag string, or tag isbn
+	//select * from book_tags inner join Books on book_tags.isbn_13 = Books.isbn_13 
+	public List<Book> getTaggedBook() {
 		// TODO Auto-generated method stub
-		return null;
+		
+		List<Book> books = new ArrayList<>();
+		try {
+			connection = DAOUtilities.getConnection();
+			String sql = "select * from Books inner join book_tags on book_tags.isbn_13 = Books.isbn_13 ";
+			stmt = connection.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Book book = new Book();
+				book.setIsbn13(rs.getString("isbn_13"));
+				book.setAuthor(rs.getString("author"));
+				book.setTitle(rs.getString("title"));
+				book.setPublishDate(rs.getDate("publish_date").toLocalDate());
+				book.setPrice(rs.getDouble("price"));
+				book.setContent(rs.getBytes("content"));
+				
+				books.add(book);
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			closeResources();
+		}
+		return books;
 	}
 	private void closeResources() {
 		try {

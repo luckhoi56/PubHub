@@ -9,5 +9,5 @@ public interface TagDAO {
 	public boolean addTag (Book a); //add tag to a book
 	public boolean removeTagByISBN (String isbn);
 	public List<Tag> getAllTags (String title);
-	public List<Book> getAllBooks (Tag a); //retrive all book that has given tag
+	public List<Book> getTaggedBook (); //retrive all book that tags, will not return book that has null tag
 }
