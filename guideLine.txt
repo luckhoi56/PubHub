@@ -1,1 +1,3 @@
 -method to add a tag to add tag to a book, given the tag and reference Book (
+-create a page to search for books that has a provided tag
+-create a page (or edit bookDetails.jsp) to add or remove tags from a book
