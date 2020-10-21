@@ -8,10 +8,21 @@
     <servlet-name>PublishBookServlet</servlet-name>
     <servlet-class>examples.pubhub.servlets.PublishBookServlet</servlet-class>
   </servlet>
+  
   <servlet-mapping>
     <servlet-name>PublishBookServlet</servlet-name>
     <url-pattern>/PublishBook</url-pattern>
   </servlet-mapping>
+
+   <servlet>
+    <servlet-name>PublishTagServlet</servlet-name>
+    <servlet-class>examples.pubhub.servlets.PublishTagServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>PublishTagServlet</servlet-name>
+    <url-pattern>/PublishTag</url-pattern>
+  </servlet-mapping>
+
   <error-page>
     <error-code>404</error-code>
     <location>/notFoundError.jsp</location>
