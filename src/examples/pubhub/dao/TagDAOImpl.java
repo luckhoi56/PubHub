@@ -8,21 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import examples.pubhub.model.Book;
-import examples.pubhub.model.Tag;
+import examples.pubhub.model.*;
 import examples.pubhub.utilities.DAOUtilities;
 
 public class TagDAOImpl implements TagDAO{
 	Connection connection = null;
 	PreparedStatement stmt = null;
 	@Override
-	public boolean addTag(Book book) {
+	public boolean addTag(Tag tag) {
 		// TODO Auto-generated method stub
 		try {
 			connection = DAOUtilities.getConnection();
 			String sql = "INSERT INTO book_tags VALUES(?,?)";
 			stmt = connection.prepareStatement(sql);
-			stmt.setString(1, book.getIsbn13());
-			stmt.setString(2, book.getTitle());
+			stmt.setString(1, tag.getIsbn13());
+			stmt.setString(2, tag.getTitle());
 			
 			//if we can add our book to db, we want it to return true
 			//this if statement both execute our querys and look at the return
@@ -89,7 +89,33 @@ public class TagDAOImpl implements TagDAO{
 		}
 		return tags;
 	}
-
+	
+	@Override
+public Tag getTag(String title) {
+		
+		// TODO Auto-generated method stub
+		List<Tag> tags = new ArrayList<>();
+		try {
+			connection = DAOUtilities.getConnection();
+			String sql = "SELECT * FROM book_tags WHERE title LIKE ?";
+			stmt = connection.prepareStatement(sql);
+			stmt.setString(1, "%" + title + "%");
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Tag tag = new Tag();
+				tag.setIsbn13(rs.getString("isbn_13"));
+				tag.setTitle(rs.getString("tag_name"));
+				tags.add(tag);
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			closeResources();
+		}
+		return tags.get(0);
+	}
 	@Override
 	//given a tag isbn, retrieve books
 	//assume a book can have more than one tag string, or tag isbn
