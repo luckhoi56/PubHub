@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import examples.pubhub.dao.TagDAO;
 import examples.pubhub.model.Tag;
 import examples.pubhub.utilities.DAOUtilities;
+
 @WebServlet("/TagPublishing")
 public class TagPublishingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -25,6 +26,6 @@ public class TagPublishingServlet extends HttpServlet {
 		// Populate the list into a variable that will be stored in the session
 		request.getSession().setAttribute("tags", tagList);
 		
-		request.getRequestDispatcher("bookPublishingHome.jsp").forward(request, response);
+		request.getRequestDispatcher("tagPublishingHome.jsp").forward(request, response);
 	}
 }

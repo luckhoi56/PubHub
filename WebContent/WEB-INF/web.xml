@@ -14,15 +14,7 @@
     <url-pattern>/PublishBook</url-pattern>
   </servlet-mapping>
 
-   <servlet>
-    <servlet-name>PublishTagServlet</servlet-name>
-    <servlet-class>examples.pubhub.servlets.PublishTagServlet</servlet-class>
-  </servlet>
-   <servlet-mapping>
-    <servlet-name>PublishTagServlet</servlet-name>
-    <url-pattern>/PublishTag</url-pattern>
-  </servlet-mapping>
-
+   
 
   <servlet>
     <servlet-name>RemoveTagServlet</servlet-name>
@@ -43,6 +35,7 @@
     <url-pattern>/AddTagToBook</url-pattern>
   </servlet-mapping>
 
+  
 
   <error-page>
     <error-code>404</error-code>
