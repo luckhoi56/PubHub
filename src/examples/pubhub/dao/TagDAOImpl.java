@@ -117,7 +117,7 @@ public class TagDAOImpl implements TagDAO{
 	}
 	@Override
 public Tag getTag(String isbn) {
-		
+		System.out.println("Print from tag model:" + isbn);
 		Tag tag = null;
 
 		try {
