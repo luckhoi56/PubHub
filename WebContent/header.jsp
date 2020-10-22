@@ -56,6 +56,8 @@
                           <li><a href="RemoveTag">Remove tag</a></li>
                           <li class="divider"></li>
                           <li><a href="AddTagToBook">Add Tag to Book</a></li>
+                          <li class="divider"></li>
+                          <li><a href="TagPublishing">Tag in database</a></li>
                         </ul>
                     </li>
 

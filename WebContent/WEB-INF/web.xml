@@ -16,15 +16,7 @@
 
    
 
-  <servlet>
-    <servlet-name>RemoveTagServlet</servlet-name>
-    <servlet-class>examples.pubhub.servlets.RemoveTagServlet</servlet-class>
-  </servlet>
-   <servlet-mapping>
-    <servlet-name>RemoveTagServlet</servlet-name>
-    <url-pattern>/RemoveTag</url-pattern>
-  </servlet-mapping>
-
+ 
 
   <servlet>
     <servlet-name>AddTagToBookServlet</servlet-name>

@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +23,7 @@ import examples.pubhub.utilities.DAOUtilities;
 					// complex data other than forms
 // Notice the lack of the @WebServlet annotation? This servlet is mapped the old
 // fashioned way - Check the web.xml!
+@WebServlet("/PublishTag")
 public class PublishTagServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
