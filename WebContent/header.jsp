@@ -46,6 +46,20 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tag<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+
+                          <li><a href="PublishTag">Add tag</a></li>
+                          <li class="divider"></li>
+                          <li><a href="RemoveTag">Remove tag</a></li>
+                          <li class="divider"></li>
+                          <li><a href="AddTagToBook">Add Tag to Book</a></li>
+                        </ul>
+                    </li>
+
+
 					<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Book Publishing<b class="caret"></b></a>
                         <ul class="dropdown-menu">

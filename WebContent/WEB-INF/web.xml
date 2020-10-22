@@ -23,6 +23,27 @@
     <url-pattern>/PublishTag</url-pattern>
   </servlet-mapping>
 
+
+  <servlet>
+    <servlet-name>RemoveTagServlet</servlet-name>
+    <servlet-class>examples.pubhub.servlets.RemoveTagServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>RemoveTagServlet</servlet-name>
+    <url-pattern>/RemoveTag</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>AddTagToBookServlet</servlet-name>
+    <servlet-class>examples.pubhub.servlets.AddTagToBookServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>AddTagToBookServlet</servlet-name>
+    <url-pattern>/AddTagToBook</url-pattern>
+  </servlet-mapping>
+
+
   <error-page>
     <error-code>404</error-code>
     <location>/notFoundError.jsp</location>

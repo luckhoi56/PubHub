@@ -21,32 +21,27 @@
 	</c:when>
 	</c:choose>
 	
-		<h1>PUBHUB <small>Attach Tag to book</small></h1>
+		<h1>PUBHUB <small>Remove Tag from book_tags database</small></h1>
 		<hr class="book-primary">
 
 		<!-- NOTE: This form uses the enctype="multipart/form-data" attribute because it contains a file upload control (<input type="file" ... />).
 				To support this special enctype, the PublishBookServlet also has the @MultiPartConfig annotation. You only need to use this
 				enctype and its corresponding annotation if you need to use a file upload control. Do not use it otherwise. -->
 				
-		<form action="PublishTag" method="post" class="form-horizontal" enctype="multipart/form-data">
+		<form action="PublishBook" method="post" class="form-horizontal" enctype="multipart/form-data">
 		  <div class="form-group">
 		    <label for="isbn13" class="col-sm-4 control-label">ISBN 13</label>
 		    <div class="col-sm-5">
 		      <input type="text" class="form-control" id="isbn13" name="isbn13" placeholder="ISBN 13" required="required" value="${param.isbn13 }" />
 		    </div>
 		  </div>
-		  <div class="form-group">
-		    <label for="title" class="col-sm-4 control-label">Title</label>
-		    <div class="col-sm-5">
-		      <input type="text" class="form-control" id="title" name="title" placeholder="Title" required="required" value="${param.title }" />
-		    </div>
-		  </div>
+		  
 		  
 		  
 		 
 		  <div class="form-group">
 		    <div class="col-sm-offset-4 col-sm-1">
-		      <button type="submit" class="btn btn-info">Attach</button>
+		      <button type="submit" class="btn btn-info">Remove</button>
 		    </div>
 		  </div>
 		</form>	

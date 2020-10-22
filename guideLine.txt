@@ -4,3 +4,7 @@
 
 here is the link to open the web
 http://localhost:8080/PubHub/
+
+-add tag
+-remove tag
+-add tag to book

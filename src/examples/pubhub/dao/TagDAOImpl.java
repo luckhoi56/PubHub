@@ -91,15 +91,14 @@ public class TagDAOImpl implements TagDAO{
 	}
 	
 	@Override
-public Tag getTag(String title) {
-		
-		// TODO Auto-generated method stub
+	//get all tags for a given book
+	public List<Tag> getAllTags() {
 		List<Tag> tags = new ArrayList<>();
 		try {
 			connection = DAOUtilities.getConnection();
-			String sql = "SELECT * FROM book_tags WHERE title LIKE ?";
+			String sql = "SELECT * FROM book_tags";
 			stmt = connection.prepareStatement(sql);
-			stmt.setString(1, "%" + title + "%");
+			
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 				Tag tag = new Tag();
@@ -114,8 +113,39 @@ public Tag getTag(String title) {
 		finally {
 			closeResources();
 		}
-		return tags.get(0);
+		return tags;
 	}
+	@Override
+public Tag getTag(String isbn) {
+		
+		Tag tag = null;
+
+		try {
+			connection = DAOUtilities.getConnection();
+			String sql = "SELECT * FROM book_tags WHERE isbn_13 = ?";
+			stmt = connection.prepareStatement(sql);
+			
+			stmt.setString(1, isbn);
+			
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				tag = new Tag();
+				tag.setIsbn13(rs.getString("isbn_13"));
+				
+				tag.setTitle(rs.getString("tag_name"));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeResources();
+		}
+		
+		return tag;
+	}
+	
 	@Override
 	//given a tag isbn, retrieve books
 	//assume a book can have more than one tag string, or tag isbn
