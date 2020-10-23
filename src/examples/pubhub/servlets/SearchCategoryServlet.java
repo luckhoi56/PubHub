@@ -36,7 +36,7 @@ public class SearchCategoryServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
 
 		String isbn13 = request.getParameter("isbn13");
-		System.out.println(isbn13);
+		
 		TagDAO dao = DAOUtilities.getTagDAO();
 		List<Book> bookList = dao.getTaggedBook(isbn13);
 		request.getSession().setAttribute("books", bookList);

@@ -21,7 +21,7 @@
 	</c:when>
 	</c:choose>
 	
-		<h1>PUBHUB <small>Remove Tag</small></h1>
+		<h1>PUBHUB <small>Search Tag Category</small></h1>
 		<hr class="book-primary">
 
 		<!-- NOTE: This form uses the enctype="multipart/form-data" attribute because it contains a file upload control (<input type="file" ... />).
@@ -30,16 +30,16 @@
 				
 		<form action="SearchCategory" method="post" class="form-horizontal" enctype="multipart/form-data">
 		  <div class="form-group">
-		    <label for="isbn13" class="col-sm-4 control-label">ISBN 13</label>
+		    <label for="isbn13" class="col-sm-4 control-label">Category</label>
 		    <div class="col-sm-5">
-		      <input type="text" class="form-control" id="isbn13" name="isbn13" placeholder="ISBN 13" required="required" value="${param.isbn13 }" />
+		      <input type="text" class="form-control" id="isbn13" name="isbn13" placeholder="Category" required="required" value="${param.isbn13 }" />
 		    </div>
 		  </div>
 
 		 
 		  <div class="form-group">
 		    <div class="col-sm-offset-4 col-sm-1">
-		      <button type="submit" class="btn btn-info">Remove</button>
+		      <button type="submit" class="btn btn-info">Search</button>
 		    </div>
 		  </div>
 		</form>	
