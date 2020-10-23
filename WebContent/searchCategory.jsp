@@ -30,16 +30,16 @@
 				
 		<form action="SearchCategory" method="post" class="form-horizontal" enctype="multipart/form-data">
 		  <div class="form-group">
-		    <label for="category" class="col-sm-4 control-label">Search book in Category</label>
+		    <label for="isbn13" class="col-sm-4 control-label">ISBN 13</label>
 		    <div class="col-sm-5">
-		      <input type="text" class="form-control" id="category" name="category" placeholder="category" required="required" value="${param.category }" />
+		      <input type="text" class="form-control" id="isbn13" name="isbn13" placeholder="ISBN 13" required="required" value="${param.isbn13 }" />
 		    </div>
 		  </div>
 
 		 
 		  <div class="form-group">
 		    <div class="col-sm-offset-4 col-sm-1">
-		      <button type="submit" class="btn btn-info">Search</button>
+		      <button type="submit" class="btn btn-info">Remove</button>
 		    </div>
 		  </div>
 		</form>	
