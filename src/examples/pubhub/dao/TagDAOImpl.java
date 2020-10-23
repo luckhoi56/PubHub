@@ -150,14 +150,15 @@ public Tag getTag(String isbn) {
 	//given a tag isbn, retrieve books
 	//assume a book can have more than one tag string, or tag isbn
 	//select * from book_tags inner join Books on book_tags.isbn_13 = Books.isbn_13 
-	public List<Book> getTaggedBook() {
+	public List<Book> getTaggedBook(String category) {
 		// TODO Auto-generated method stub
 		
 		List<Book> books = new ArrayList<>();
 		try {
 			connection = DAOUtilities.getConnection();
-			String sql = "select * from Books inner join book_tags on book_tags.isbn_13 = Books.isbn_13 ";
+			String sql = "SELECT * FROM books WHERE isbn_13 IN (SELECT isbn_13 FROM book_tags WHERE tag_name = ?)";
 			stmt = connection.prepareStatement(sql);
+			stmt.setString(1, category);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 				Book book = new Book();
@@ -177,6 +178,7 @@ public Tag getTag(String isbn) {
 		finally {
 			closeResources();
 		}
+		
 		return books;
 	}
 	private void closeResources() {

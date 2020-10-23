@@ -8,3 +8,22 @@ http://localhost:8080/PubHub/
 -add tag
 -remove tag
 -add tag to book
+
+-search for tag:
+	- we will insert the book as normal
+	-after that, we will insert the tag, with isbn match with the book
+	-search tag, we do not search using isbn, we search for tag title, which is equivalent to book category, and return all the book with that category to the user
+
+given tag's category
+
+select isbn_13 from book_tags
+where tag_name = ?
+
+select * from books where isbn_13 in
+(select isbn_13 from book_tags
+where tag_name =? )
+
+
+here it works
+select * from books where isbn_13 in
+(select isbn_13 from book_tags where tag_name='finance')

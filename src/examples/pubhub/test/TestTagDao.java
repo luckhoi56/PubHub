@@ -1,5 +1,7 @@
 package examples.pubhub.test;
 
+import java.util.List;
+
 import examples.pubhub.dao.TagDAO;
 import examples.pubhub.dao.TagDAOImpl;
 import examples.pubhub.model.*;
@@ -18,6 +20,11 @@ public class TestTagDao {
 		//Book book_2 = new Book("1111111111113","Wall Street Bets","Khoi Luc",null);
 		//dao.addTag(book_2);
 		//System.out.println("Tag is: " + dao.addTag(book));
-		System.out.println("remove tag " + dao.removeTagByISBN("1111111111112"));
+		List<Book> list = dao.getTaggedBook("investing");
+		for (int i = 0; i < list.size(); i++) {
+			Book b = list.get(i);
+			System.out.println(b.getIsbn13());
+			System.out.println(b.getAuthor());
+		}
 	}
 }
